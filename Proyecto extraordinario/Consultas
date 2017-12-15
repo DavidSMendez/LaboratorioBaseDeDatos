@@ -1,0 +1,37 @@
+select COUNT (nombre) as 'categoria', tipo from producto group by tipo;
+select MAX(cantidad) as 'Prod con mas cantidad', MIN (cantidad) as 'Prod con menos cantidad', count (nombre) as 'cantidad de prod'
+from inventario
+
+
+select top 10 * from producto
+
+select max(total) as 'nuestra mayor venta'
+from venta
+having max(total) > 50
+select cantidad, nombre
+from comprainventario
+where fechaentrada = '2017-12-01'
+
+select nombre,
+from producto
+where tipo = 'bebidas'
+
+select nombre
+from cajero
+where repor_ventas = '2'
+
+
+select sum(cantidad) as 'compras de hoy'
+from comprainventario
+having sum(fechaentrada) = '2017-12-02'
+
+select sum(cantidad) as 'total de inventario'
+from inventario
+having sum(cantidad) > 50
+
+select * into #proveedor2 from inventario
+where proveedor = 'ARCA'
+
+select * from  #proveedor2
+
+select * from inventario where inventario.cantidad = (select cantidad from inventario where cantidad = 124)
